@@ -2,7 +2,7 @@ const restify = require('restify');
 const cheerio = require('cheerio');
 const request = require('request');
 const corsMiddleware = require('restify-cors-middleware');
-
+require('dotenv').config()
 var URI = "https://www.gsmarena.com";
 
 const cors = corsMiddleware({
@@ -322,6 +322,6 @@ server.head('/gsmarena/review/:url', phoneReview);
 
 
 
-server.listen(8888, function () {
+server.listen(process.env.PORT, function () {
     console.log('%s listening at %s', server.name, server.url);
 });
